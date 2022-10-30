@@ -6,12 +6,14 @@ _REPLACE OR REMOVE EVERYTING BETWEEN "\_"_
 
 ### Student Info
 
--   Name: _YOUR NAME_
--   Section: _##_
+-   Name: Madeline Boussa
+-   Section: 05
 
 ## Simulation Design
 
 _A brief explanation of your simulation._
+
+Simulation will deal with flowers and plant life! Players will dynamically grow their flock of flora as the different blossom types move around the screen and ward off hostile weeds.
 
 ### Controls
 
