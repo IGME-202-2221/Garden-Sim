@@ -11,9 +11,7 @@ _REPLACE OR REMOVE EVERYTING BETWEEN "\_"_
 
 ## Simulation Design
 
-_A brief explanation of your simulation._
-
-Simulation will deal with flowers and plant life! Players will dynamically grow their flock of flora as the different blossom types move around the screen and ward off hostile weeds.
+The player will help manage a small garden simulation! In this top-down perspective game, the player will help place flowers to be pollinated by bees and humming birds. Help the ecosystem out by planting flowers in ideal spots where critters flock, but be wary of weeds and invasive plants which will drive the critters away.
 
 ### Controls
 
