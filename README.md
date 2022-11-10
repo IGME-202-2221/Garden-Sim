@@ -11,21 +11,29 @@ _REPLACE OR REMOVE EVERYTING BETWEEN "\_"_
 
 ## Simulation Design
 
-The player will help manage a small garden simulation! In this top-down perspective game, the player will help place flowers to be pollinated by bees and humming birds. Help the ecosystem out by planting flowers in ideal spots where critters flock, but be wary of weeds and invasive plants which will drive the critters away.
+The player will help manage a small garden simulation! In this top-down perspective game, the player will help place flowers to be pollinated by bees and humming birds. Help the ecosystem out by planting flowers in ideal spots where critters flock, but be wary of weeds and invasive plants which will drive the critters away. and damage the ecosystem.
 
 ### Controls
 
 -   _List all of the actions the player can have in your simulation_
     -   _Include how to preform each action ( keyboard, mouse, UI Input )_
-    -   _Include what impact an action has in the simulation ( if is could be unclear )_
+    -   _Include what impact an action has in the simulation ( if it could be unclear )_
+    
+    -Player can move around the screen (keyboard - WASD)
+    
+    <br>
+    -Player can place flowers at their current position (mouse - left click)
+      <br>  -by placing flowers, player can dictate where bees and hummingbirds flock to, as the critters will seek the placed flowers
 
-## _Agent 1 Name_
+## Bee (& Hummingbird)
 
-_A brief explanation of this agent._
+Bee agent will wander around the screen and will seek flowers when in a placed flower's proximity. The bee's goal is to collide with found flowers and "pollinate" them (flowers disappear upon being pollinated), rewarding the player with points.
 
-### _State 1 Name_
+### Aimless Wander
 
 **Objective:** _A brief explanation of this state's objective._
+
+Bees and hummingbirds will wander until they "see" a flower or target to pollinate. During the wander state, the critters will just attempt to stay in bounds and wander the screen in a believable way.
 
 #### Steering Behaviors
 
@@ -41,9 +49,11 @@ _A brief explanation of this agent._
    - _eg, When this agent gets within range of Agent2_
    - _eg, When this agent has reached target of State2_
    
-### _State 2 Name_
+### Seek Flower
 
 **Objective:** _A brief explanation of this state's objective._
+
+When a flower is found (critter falls within a certain area around the flower object), bees & hummingbirds will seek that flower.
 
 #### Steering Behaviors
 
