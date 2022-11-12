@@ -11,7 +11,7 @@ _REPLACE OR REMOVE EVERYTING BETWEEN "\_"_
 
 ## Simulation Design
 
-The player will help manage a small garden simulation! In this top-down perspective game, the player will help place flowers to be pollinated by bees and humming birds. Help the ecosystem out by planting flowers in ideal spots where critters flock, but be wary of weeds and invasive plants which will drive the critters away. and damage the ecosystem.
+The player will help manage a small garden simulation! In this top-down perspective game, the player will help place flowers to be pollinated by bees and humming birds. Help the ecosystem out by planting flowers in ideal spots where critters flock, but be wary of weeds and invasive plants which will drive the critters away, and damage the ecosystem.
 
 ### Controls
 
