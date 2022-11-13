@@ -11,102 +11,114 @@ _REPLACE OR REMOVE EVERYTING BETWEEN "\_"_
 
 ## Simulation Design
 
-The player will help manage a small garden simulation! In this top-down perspective game, the player will help place flowers to be pollinated by bees and humming birds. Help the ecosystem out by planting flowers in ideal spots where critters flock, but be wary of weeds and invasive plants which will drive the critters away. and damage the ecosystem.
+The player will help manage a small garden simulation! In this top-down perspective game, the player will help place flowers to be pollinated by bees and humming birds. Help the ecosystem out by planting flowers in ideal spots where critters flock, but be wary of weeds and invasive plants which will drive the critters away, and damage the ecosystem.
 
-### Controls
-
--   _List all of the actions the player can have in your simulation_
-    -   _Include how to preform each action ( keyboard, mouse, UI Input )_
-    -   _Include what impact an action has in the simulation ( if it could be unclear )_
+### Controls  
+   -Player can move around the screen (keyboard - WASD)
     
-    -Player can move around the screen (keyboard - WASD)
-    
-    <br>
-    -Player can place flowers at their current position (mouse - left click)
-      <br>  -by placing flowers, player can dictate where bees and hummingbirds flock to, as the critters will seek the placed flowers
+   <br>
+   -Player can place flowers at their current position, with cooldown (mouse - left click)
+    <br>  -by placing flowers, player can dictate where bees and hummingbirds flock to, as the critters will seek the placed flowers
 
 ## Bee (& Hummingbird)
 
-Bee agent will wander around the screen and will seek flowers when in a placed flower's proximity. The bee's goal is to collide with found flowers and "pollinate" them (flowers disappear upon being pollinated), rewarding the player with points.
+Bee agents will wander around the screen and will seek flowers when in a placed flower's proximity. The bee's goal is to collide with found flowers and "pollinate" them (flowers disappear upon being pollinated), rewarding the player with points. An extra bee is also spawned each time a flower is successfully polinated.
 
 ### Aimless Wander
 
-**Objective:** _A brief explanation of this state's objective._
+**Objective:**
 
-Bees and hummingbirds will wander until they "see" a flower or target to pollinate. During the wander state, the critters will just attempt to stay in bounds and wander the screen in a believable way.
+Bees and hummingbirds will wander until they "see" a flower or target to pollinate. During the wander state, the critters will just attempt to stay in bounds, separate from one another, and wander the screen in a believable way. There will be no color tint to the sprite during this phase.
 
 #### Steering Behaviors
 
-- _List all behaviors used by this state_
-   - _If behavior has input data list it here_
-   - _eg, Flee - nearest Agent2_
+-Wander()
+<br>-StayinBounds - worldSize
+<br>-Separate - other agents
+
+
 - Obstacles - _List all obstacle types this state avoids_
-- Seperation - _List all agents this state seperates from_
+
+
+- Seperation - other bees, other hummingbirds
    
 #### State Transistions
 
-- _List all the ways this agent can transition to this state_
-   - _eg, When this agent gets within range of Agent2_
-   - _eg, When this agent has reached target of State2_
+- when agent is outside of range of a flower (doesn't "see" any flowers nearby), transition to wander state
    
 ### Seek Flower
 
-**Objective:** _A brief explanation of this state's objective._
+**Objective:** 
 
-When a flower is found (critter falls within a certain area around the flower object), bees & hummingbirds will seek that flower.
-
-#### Steering Behaviors
-
-- _List all behaviors used by this state_
-- Obstacles - _List all obstacle types this state avoids_
-- Seperation - _List all agents this state seperates from_
-   
-#### State Transistions
-
-- _List all the ways this agent can transition to this state_
-
-## _Agent 2 Name_
-
-_A brief explanation of this agent._
-
-### _State 1 Name_
-
-**Objective:** _A brief explanation of this state's objective._
+When a flower is found (critter falls within a certain area around the flower object), bees & hummingbirds will seek that flower. The bee will also change to a slight color tint or have a particle effect when actively seeking a flower.
 
 #### Steering Behaviors
 
-- _List all behaviors used by this state_
+-Seek() - flower's position
+<br>-StayinBounds - worldSize
+<br>-Separate - other agents
+
+
 - Obstacles - _List all obstacle types this state avoids_
-- Seperation - _List all agents this state seperates from_
+
+
+- Seperation - other bees, other hummingbirds
    
 #### State Transistions
 
-- _List all the ways this agent can transition to this state_
-   
-### _State 2 Name_
+- when an agent comes within a range of a flower, transition to seeking state
 
-**Objective:** _A brief explanation of this state's objective._
+## Beetles
+
+Hostile beetles will slowly creep toward the player and aim to damage the ecosystem. If a bee comes in contact with a beetle the bee will die, and beetles will also destroy flowers upon collision. Beetles will move slower than bees. Thus the player's goal is to balance the environment by placing flowers in areas bees will flock while also leading the beetles away from the bees.
+
+### Idle
+
+**Objective:** 
+When the beetle is first spawned in, it will remain still for a few seconds in order to give the player a headstart/time to plan accordingly. During this state, the beetle will count down and will begin to move when it gets to zero. Beetle will have a red color tint during its stationary phase.
 
 #### Steering Behaviors
 
-- _List all behaviors used by this state_
-- Obstacles - _List all obstacle types this state avoids_
-- Seperation - _List all agents this state seperates from_
+- no steering behaviors necessary (remaining still), however, beetle will rotate in direction of player
+- Obstacles - no obstacle avoidance necessary during this state
+- Seperation - no separation necessary, but beetles will not spawn overlapping one another
    
 #### State Transistions
 
-- _List all the ways this agent can transition to this state_
+- start at this state upon spawn
+   
+### Seek Player
+
+**Objective:** 
+Beetles will slowly move towards the player's current location with the intention of harming the bees and placed flowers if they so happen to get in the beetle's way. Beetle will have no color tint during this state, as opposed to the red of the idle state. Beetles will die once they collide with a bee/flower.
+
+#### Steering Behaviors
+
+-Seek() - player's position
+<br>-StayinBounds - worldSize
+<br>-Separate - other beetle agents
+
+
+- Obstacles - _List all obstacle types this state avoids_
+
+
+- Seperation - other beetles
+   
+#### State Transistions
+
+- Once the idle countdown has finished, beetles will transition to the seeking state
 
 ## Sources
 
--   _List all project sources here –models, textures, sound clips, assets, etc._
--   _If an asset is from the Unity store, include a link to the page and the author’s name_
+-   all sprites were created by myself using Adobe Illustrator
+-   background image was created by myself using Adobe Illustrator
 
 ## Make it Your Own
 
-- _List out what you added to your game to make it different for you_
-- _If you will add more agents or states make sure to list here and add it to the documention above_
-- _If you will add your own assets make sure to list it here and add it to the Sources section
+- original sprites and background created using Adobe Suite
+- player "vehicle" (fairy) that takes user input to move around the garden
+- player particle effect trail that displays whenever the player moves, created using Unity's built in particle system
+- additional agent type called the Hummingbird, which has the same functionality as the bee agents just with an increased speed and more frantic feeling movement. The hummingbird is a rarer spawn, and grants the player more points when flowers a pollinated with the hummingbird. The hummingbird has the same steering behaviors and state functionality as the bee.
 
 ## Known Issues
 
