@@ -40,6 +40,14 @@ public abstract class Agent : MonoBehaviour
     [SerializeField]
     float personalSpace = 1f;
 
+    [SerializeField]
+    protected float avoidMaxRange = 5f;
+    [SerializeField]
+    protected float avoidRadius = 1f;
+
+    // temporary variable for debugging purposes
+    protected List<Vector3> tempObPos = new List<Vector3>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -166,5 +174,52 @@ public abstract class Agent : MonoBehaviour
     public Vector3 CalcFuturePosition(float time)
     {
         return physicsObject.Position + (physicsObject.Direction * maxSpeed * time);
+    }
+
+    public Vector3 AvoidObstacle(float weight = 1f)
+    {
+        Vector3 avoidForce = Vector3.zero;
+        Vector3 VtoO = Vector3.zero;                    // vector to obstacle
+        Vector3 futurePos = CalcFuturePosition(avoidMaxRange);     // may want to store time value in wander or child class (depending on which agents require it)
+
+        float dotForward, dotRight;
+        float avoidMaxSqrDist = Vector3.SqrMagnitude(futurePos - physicsObject.Position);
+        avoidMaxSqrDist += avoidRadius;
+
+        // add all obstacle positions to the list
+        tempObPos.Clear();
+        foreach (Obstacle obstacle in AgentManager.Instance.obstacles)
+        {
+            // calculate vector to object
+            VtoO = obstacle.Position - physicsObject.Position;
+
+            // is this in front?
+            dotForward = Vector3.Dot(VtoO, physicsObject.Velocity.normalized);     // left-hand vector will always be unnormalized
+
+            if (dotForward > 0 && dotForward * dotForward < avoidMaxSqrDist)
+            {
+                dotRight = Vector3.Dot(VtoO, transform.right);
+
+                // check if within avoidance zone rectangle
+                if (Mathf.Abs(dotRight) < avoidRadius + obstacle.radius)
+                {
+                    tempObPos.Add(obstacle.Position);         //for gizmos
+
+                    // steer agents away from obstacles
+                    if (dotRight > 0)
+                    {
+                        // steer agent left
+                        avoidForce += -transform.right * maxSpeed * (1f / dotForward);
+                    }
+                    else
+                    {
+                        // steer agent right
+                        avoidForce += transform.right * maxSpeed * (1f / dotForward);
+                    }
+                }
+            }
+        }
+
+        return avoidForce;
     }
 }
