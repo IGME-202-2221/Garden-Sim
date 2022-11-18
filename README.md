@@ -50,7 +50,7 @@ Bees and butterflies will wander until they "see" a flower or target to pollinat
 
 **Objective:** 
 
-When a flower is found (critter falls within a certain area around the flower object), bees & hummingbirds will seek that flower. The bee will also change to a slight color tint or have a particle effect when actively seeking a flower.
+When a flower is found (critter falls within a certain area around the flower object), bees & butterflies will seek that flower. The bee will also change to a slight color tint or have a particle effect when actively seeking a flower.
 
 #### Steering Behaviors
 
@@ -62,7 +62,7 @@ When a flower is found (critter falls within a certain area around the flower ob
 - Obstacles - _List all obstacle types this state avoids_
 
 
-- Seperation - other bees, other hummingbirds
+- Seperation - other bees, other butterflies
    
 #### State Transistions
 
