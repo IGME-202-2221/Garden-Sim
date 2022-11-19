@@ -20,6 +20,8 @@ public class AgentManager : MonoBehaviour
     [SerializeField]
     int numBees;
 
+    public List<Obstacle> obstacles = new List<Obstacle>();
+
     private float totalCamHeight;
     private float totalCamWidth;
 
