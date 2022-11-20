@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 1917775042557966191}
+  radiusScalar: 0.8
 --- !u!114 &1917775042557966185
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -72,4 +72,6 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(Vector3.back, direction);
         }
     }
+
+
 }
