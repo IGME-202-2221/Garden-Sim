@@ -34,7 +34,7 @@ public class Wanderer : Agent
         // have wanderers separation from each other
         totalSteeringForce += Separate(AgentManager.Instance.AgentsList);
 
-        totalSteeringForce += AvoidObstacle();
+        totalSteeringForce += AvoidObstacle(2f);
     }
 
     private void OnDrawGizmosSelected()
