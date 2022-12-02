@@ -35,6 +35,7 @@ public class Wanderer : Agent
         totalSteeringForce += Separate(AgentManager.Instance.AgentsList);
 
         totalSteeringForce += AvoidObstacle(2f);
+
     }
 
     private void OnDrawGizmosSelected()

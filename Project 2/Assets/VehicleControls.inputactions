@@ -24,7 +24,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Fire",
+                    "name": "Plant",
                     "type": "Button",
                     "id": "0355a979-0852-4a8b-92a0-4b4ba7e7bc3f",
                     "expectedControlType": "Button",
@@ -191,7 +191,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Fire",
+                    "action": "Plant",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -202,7 +202,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Fire",
+                    "action": "Plant",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

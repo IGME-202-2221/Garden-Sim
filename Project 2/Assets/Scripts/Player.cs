@@ -16,6 +16,12 @@ public class Player : MonoBehaviour
     float totalCamHeight;
     float totalCamWidth;
 
+    [SerializeField]
+    List<GameObject> flowPrefabsList;
+
+    float cooldownDuration = 3f;
+    float cooldownTime = 3f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +64,9 @@ public class Player : MonoBehaviour
 
         // draw the new (validated) position
         transform.position = vehiclePosition;
+
+        // increment cooldown time
+        cooldownTime += Time.deltaTime;
     }
 
     // write a method to be called by another script (like an event)
@@ -70,6 +79,32 @@ public class Player : MonoBehaviour
         if (direction != Vector3.zero)
         {
             transform.rotation = Quaternion.LookRotation(Vector3.back, direction);
+        }
+    }
+
+    public void OnPlant(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            // only place flower if playter is not on cooldown
+            if (cooldownTime >= cooldownDuration)
+            {
+                // get random flower prefab from list
+                int flowerIndex = Random.Range(0, 2);
+                GameObject newFlower = Instantiate(flowPrefabsList[flowerIndex]);
+                newFlower.GetComponent<Transform>().position = transform.position;
+
+                // add to list of flowers in scene
+                AgentManager.Instance.flowers.Add(newFlower);
+
+                // reset cooldown
+                cooldownTime = 0;
+            }
+        }
+
+        if (context.canceled)
+        {
+
         }
     }
 

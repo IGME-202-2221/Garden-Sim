@@ -149,7 +149,19 @@ MonoBehaviour:
     m_ActionId: 7ef0154c-6e4d-48ec-b07c-09146f7bd918
     m_ActionName: Player/Look[/Mouse/delta,/Pen/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -5060693516774797017}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnPlant
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 0355a979-0852-4a8b-92a0-4b4ba7e7bc3f
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -178,6 +190,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  flowPrefabsList:
+  - {fileID: 9075264638772363238, guid: 25320c3555fd654469ebec8b2beb9ac1, type: 3}
+  - {fileID: 4240542295985420332, guid: a92beee8e1e89e9479cdff74eab24b44, type: 3}
 --- !u!198 &126672543
 ParticleSystem:
   m_ObjectHideFlags: 0

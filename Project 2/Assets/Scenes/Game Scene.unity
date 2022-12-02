@@ -512,6 +512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabsList:
   - {fileID: 1917775042557966187, guid: c5d722741c85eee4fb3a123afaeba008, type: 3}
+  - {fileID: 2775399190464354379, guid: 0479dd93d7e44fd43910961f4ed30108, type: 3}
   agentsList: []
   numBees: 15
   obstacles:

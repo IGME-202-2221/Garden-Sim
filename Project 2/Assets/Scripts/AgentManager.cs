@@ -22,6 +22,8 @@ public class AgentManager : MonoBehaviour
 
     public List<Obstacle> obstacles = new List<Obstacle>();
 
+    public List<GameObject> flowers = new List<GameObject>();
+
     private float totalCamHeight;
     private float totalCamWidth;
 
@@ -44,6 +46,17 @@ public class AgentManager : MonoBehaviour
             newBee.GetComponent<PhysicsObject>().Direction = Random.insideUnitCircle.normalized;
 
             agentsList.Add(newBee.GetComponent<Agent>());
+        }
+
+        // instantiate a random number of butterfly agents
+        int numButterflies = Random.Range(0, 5);
+        for (int i = 0; i < numButterflies; i++)
+        {
+            GameObject newButt = Instantiate(prefabsList[1]);
+            newButt.GetComponent<Transform>().position = new Vector3(Random.Range(-totalCamWidth, totalCamWidth), Random.Range(-totalCamHeight, totalCamHeight), 0);
+            newButt.GetComponent<PhysicsObject>().Direction = Random.insideUnitCircle.normalized;
+
+            agentsList.Add(newButt.GetComponent<Agent>());
         }
     }
 }
