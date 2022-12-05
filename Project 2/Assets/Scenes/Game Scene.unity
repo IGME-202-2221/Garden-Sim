@@ -519,6 +519,7 @@ MonoBehaviour:
   - {fileID: 2029883847}
   - {fileID: 1315534745}
   - {fileID: 604485068}
+  flowers: []
 --- !u!114 &2029883847 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3496360533442021501, guid: 06e2ed6f8ebb54b42bca5813a499499c, type: 3}
@@ -604,14 +605,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -7243286106923667613, guid: 8c7a560729ceb6d49860e80260f08548, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 519420031}
-    - target: {fileID: -5060693516774797017, guid: 8c7a560729ceb6d49860e80260f08548, type: 3}
-      propertyPath: speed
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 4242363164204426002, guid: 8c7a560729ceb6d49860e80260f08548, type: 3}
       propertyPath: m_RootOrder
       value: 2

@@ -48,6 +48,10 @@ public abstract class Agent : MonoBehaviour
     // temporary variable for debugging purposes
     protected List<Vector3> tempObPos = new List<Vector3>();
 
+    // for detecting flowers
+    [SerializeField]
+    protected float sightRadius = 2f;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -139,4 +139,5 @@ MonoBehaviour:
   personalSpace: 3
   avoidMaxRange: 3
   avoidRadius: 1
+  sightRadius: 1.5
   boundsScalar: 2
