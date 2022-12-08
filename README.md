@@ -118,7 +118,7 @@ Beetles will slowly move towards the player's current location with the intentio
 - original sprites and background created using Adobe Suite
 - player "vehicle" (fairy) that takes user input to move around the garden
 - player particle effect trail that displays whenever the player moves, created using Unity's built in particle system
-- additional agent type called the Butterfly, which has the same functionality as the bee agents just with a slower speed and more floaty feeling movement. The butterfly is a rarer spawn, and grants the player more points when flowers a pollinated with the butterfly. The butterfly has the same steering behaviors and state functionality as the bee.
+- additional agent type called the Butterfly, which has the same functionality as the bee agents just with a quicker speed and more jerky feeling movement. The butterfly is a rarer spawn, and grants the player more points when flowers a pollinated with the butterfly. The butterfly has the same steering behaviors and state functionality as the bee.
 
 ## Known Issues
 
