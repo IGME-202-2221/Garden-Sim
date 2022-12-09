@@ -432,6 +432,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9f40e3a840c3f74396b47e091bafed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1342253054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5425987086892439454, guid: 8c7a560729ceb6d49860e80260f08548, type: 3}
+  m_PrefabInstance: {fileID: 7062304703014145080}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1774590919
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +501,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1842223227
 MonoBehaviour:
@@ -515,11 +520,15 @@ MonoBehaviour:
   - {fileID: 2775399190464354379, guid: 0479dd93d7e44fd43910961f4ed30108, type: 3}
   agentsList: []
   numBees: 15
+  numBeetles: 5
+  beetlePrefab: {fileID: 7411863837036426196, guid: 93313a6ed4e5ff34981aa96420f986cb, type: 3}
   obstacles:
   - {fileID: 2029883847}
   - {fileID: 1315534745}
   - {fileID: 604485068}
   flowers: []
+  beetles: []
+  player: {fileID: 1342253054}
 --- !u!114 &2029883847 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3496360533442021501, guid: 06e2ed6f8ebb54b42bca5813a499499c, type: 3}
@@ -607,7 +616,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4242363164204426002, guid: 8c7a560729ceb6d49860e80260f08548, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4242363164204426002, guid: 8c7a560729ceb6d49860e80260f08548, type: 3}
       propertyPath: m_LocalPosition.x

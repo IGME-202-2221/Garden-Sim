@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Wanderer : Agent
 {
@@ -18,8 +19,8 @@ public class Wanderer : Agent
     float boundsScalar = 1;
 
     public AgentStates currentState; // defaults to zero, or "Wander"
-                                     // stores the index of agent's target, if there is one
-    int targetIndex = 0;
+                                    
+    int targetIndex = 0;     // stores the index of agent's target, if there is one
 
     // temporarily use awake so we don't override the parent class start()
     private void Awake()
@@ -55,10 +56,18 @@ public class Wanderer : Agent
 
             case AgentStates.SeekFlower:
                 // seek flower
-                totalSteeringForce += Seek(AgentManager.Instance.flowers[targetIndex].transform.position);
-
-                // seek flower until flower has been pollinated (collision with an agent
+                try
+                {
+                    totalSteeringForce += Seek(AgentManager.Instance.flowers[targetIndex].transform.position, 2f);
+                }
+                // seek flower until flower has been pollinated (collision with an agent)
                 // if collision, reset target to null and switch to wander state
+                catch
+                {
+                    // if the flower this agent was trying to seek got destroyed, 
+                    // change the agent's state to wander
+                    currentState = AgentStates.Wander;
+                }
 
                 break;
         }
@@ -70,24 +79,10 @@ public class Wanderer : Agent
         boundsForce = StayinBounds(worldSize, 1f);
         totalSteeringForce += boundsForce * boundsScalar; // multiply by bounds scalar to increase the strength of the bounds force
 
-        // have wanderers separation from each other
+        // have wanderers separate from each other
         totalSteeringForce += Separate(AgentManager.Instance.AgentsList);
 
         totalSteeringForce += AvoidObstacle(2f);
-    }
-
-    // changes from the currentState to a new state
-    public void ChangeStateTo(AgentStates newState)
-    {
-        switch (newState)
-        {
-            case AgentStates.Wander:
-                break;
-
-            case AgentStates.SeekFlower:
-                break;
-        }
-
     }
 
     private void OnDrawGizmosSelected()

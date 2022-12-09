@@ -20,12 +20,28 @@ public class AgentManager : MonoBehaviour
     [SerializeField]
     int numBees;
 
+    [SerializeField]
+    int numBeetles;
+
+    [SerializeField]
+    GameObject beetlePrefab;
+
     public List<Obstacle> obstacles = new List<Obstacle>();
 
     public List<GameObject> flowers = new List<GameObject>();
 
+    public List<Agent> beetles = new List<Agent>();
+
     private float totalCamHeight;
     private float totalCamWidth;
+
+    // get a reference to player that other scripts can utilize
+    [SerializeField]
+    GameObject player;
+    public GameObject Player { get { return player; } }
+
+    float score;
+    public float Score { get { return score; } set { score = value; } }
 
     private void Awake()
     {
@@ -49,7 +65,7 @@ public class AgentManager : MonoBehaviour
         }
 
         // instantiate a random number of butterfly agents
-        int numButterflies = Random.Range(0, 5);
+        int numButterflies = Random.Range(1, 6);
         for (int i = 0; i < numButterflies; i++)
         {
             GameObject newButt = Instantiate(prefabsList[1]);
@@ -57,6 +73,15 @@ public class AgentManager : MonoBehaviour
             newButt.GetComponent<PhysicsObject>().Direction = Random.insideUnitCircle.normalized;
 
             agentsList.Add(newButt.GetComponent<Agent>());
+        }
+
+        // instantiate beetle agents at random locations with the bounds of the game
+        for (int i = 0; i < numBeetles; i++)
+        {
+            GameObject newBeetle = Instantiate(beetlePrefab);
+            newBeetle.GetComponent<Transform>().position = new Vector3(Random.Range(-totalCamWidth, totalCamWidth), Random.Range(-totalCamHeight, totalCamHeight), 0);
+
+            beetles.Add(newBeetle.GetComponent<Agent>());
         }
     }
 }

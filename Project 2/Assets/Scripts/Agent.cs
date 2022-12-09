@@ -50,7 +50,7 @@ public abstract class Agent : MonoBehaviour
 
     // for detecting flowers
     [SerializeField]
-    protected float sightRadius = 2f;
+    protected float sightRadius = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -74,6 +74,17 @@ public abstract class Agent : MonoBehaviour
 
         // must zero out forces
         totalSteeringForce = Vector3.zero;
+
+        // check for collisions between flowers and agents
+        for (int i = 0; i < AgentManager.Instance.flowers.Count; i++)
+        {
+            // if there is a collision and this flower hasn't already collided with an agent
+            if (CircleCollision(gameObject, AgentManager.Instance.flowers[i]) && !AgentManager.Instance.flowers[i].GetComponent<Flower>().HasCollided)
+            {
+                // set this flower's collision property to true
+                AgentManager.Instance.flowers[i].GetComponent<Flower>().HasCollided = true;
+            }
+        }
     }
 
     // child classes have to implement this method
@@ -226,4 +237,21 @@ public abstract class Agent : MonoBehaviour
 
         return avoidForce;
     }
+
+    public bool CircleCollision(GameObject obj1, GameObject obj2)
+    {
+        // store the distance between circle centers
+        float centerDist = (obj1.transform.position - obj2.transform.position).magnitude;
+
+        // collision occurs if distance between centers is less than the sum of the radii
+        if ((centerDist) < (obj1.GetComponent<SpriteInfo>().Radius + obj2.GetComponent<SpriteInfo>().Radius))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 }
