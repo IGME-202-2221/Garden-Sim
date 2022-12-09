@@ -37,7 +37,7 @@ Bees and butterflies will wander until they "see" a flower or target to pollinat
 <br>-Separate - other agents
 
 
-- Obstacles - _List all obstacle types this state avoids_
+- Obstacles - avoids rocks
 
 
 - Seperation - other bees, other butterflies
@@ -59,7 +59,7 @@ When a flower is found (critter falls within a certain area around the flower ob
 <br>-Separate - other agents
 
 
-- Obstacles - _List all obstacle types this state avoids_
+- Obstacles - avoids rocks
 
 
 - Seperation - other bees, other butterflies
@@ -70,12 +70,12 @@ When a flower is found (critter falls within a certain area around the flower ob
 
 ## Beetles
 
-Hostile beetles will slowly creep toward the player and aim to damage the ecosystem. If a bee comes in contact with a beetle the bee will die, and beetles will also destroy flowers upon collision. Beetles will move slower than bees. Thus the player's goal is to balance the environment by placing flowers in areas bees will flock while also leading the beetles away from the bees.
+Hostile beetles will slowly creep toward the player and aim to damage the ecosystem. If a bee comes in contact with a beetle the bee will die. Beetles will also move slower than bees. Thus the player's goal is to balance the environment by placing flowers in areas bees will flock while also leading the beetles away from the bees.
 
 ### Idle
 
 **Objective:** 
-When the beetle is first spawned in, it will remain still for a few seconds in order to give the player a headstart/time to plan accordingly. During this state, the beetle will count down and will begin to move when it gets to zero. Beetle will have a red color tint during its stationary phase.
+When the beetle is first spawned in, it will remain still for a few seconds in order to give the player a headstart/time to plan accordingly. During this state, the beetle will count down and will begin to move when it gets to zero. Beetle will have a red color tint during its stationary phase. Whenever a beetle collides with or "kills" a bee/butterfly agent, a new beetle will be spawned in a random location. This means there will always be 3 beetles on screen.
 
 #### Steering Behaviors
 
@@ -99,7 +99,7 @@ Beetles will slowly move towards the player's current location with the intentio
 <br>-Separate - other beetle agents
 
 
-- Obstacles - _List all obstacle types this state avoids_
+- Obstacles - avoids rocks
 
 
 - Seperation - other beetles
@@ -118,7 +118,8 @@ Beetles will slowly move towards the player's current location with the intentio
 - original sprites and background created using Adobe Suite
 - player "vehicle" (fairy) that takes user input to move around the garden
 - player particle effect trail that displays whenever the player moves, created using Unity's built in particle system
-- additional agent type called the Butterfly, which has the same functionality as the bee agents just with a slower speed and more floaty feeling movement. The butterfly is a rarer spawn, and grants the player more points when flowers a pollinated with the butterfly. The butterfly has the same steering behaviors and state functionality as the bee.
+- additional agent type called the Butterfly, which has the same functionality as the bee agents just with a quicker speed and more jerky feeling movement. The butterfly is a rarer spawn, and grants the player more points when flowers a pollinated with the butterfly. The butterfly has the same steering behaviors and state functionality as the bee.
+- there is a wait time until flowers are destroyed, meaning that agents can cluster near flowers and the flower won't be removed from the scene immediately
 
 ## Known Issues
 
