@@ -37,7 +37,7 @@ Bees and butterflies will wander until they "see" a flower or target to pollinat
 <br>-Separate - other agents
 
 
-- Obstacles - _List all obstacle types this state avoids_
+- Obstacles - avoids rocks
 
 
 - Seperation - other bees, other butterflies
@@ -59,7 +59,7 @@ When a flower is found (critter falls within a certain area around the flower ob
 <br>-Separate - other agents
 
 
-- Obstacles - _List all obstacle types this state avoids_
+- Obstacles - avoids rocks
 
 
 - Seperation - other bees, other butterflies
@@ -99,7 +99,7 @@ Beetles will slowly move towards the player's current location with the intentio
 <br>-Separate - other beetle agents
 
 
-- Obstacles - _List all obstacle types this state avoids_
+- Obstacles - avoids rocks
 
 
 - Seperation - other beetles
