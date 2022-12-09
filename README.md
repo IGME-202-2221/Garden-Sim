@@ -70,12 +70,12 @@ When a flower is found (critter falls within a certain area around the flower ob
 
 ## Beetles
 
-Hostile beetles will slowly creep toward the player and aim to damage the ecosystem. If a bee comes in contact with a beetle the bee will die, and beetles will also destroy flowers upon collision. Beetles will move slower than bees. Thus the player's goal is to balance the environment by placing flowers in areas bees will flock while also leading the beetles away from the bees.
+Hostile beetles will slowly creep toward the player and aim to damage the ecosystem. If a bee comes in contact with a beetle the bee will die. Beetles will also move slower than bees. Thus the player's goal is to balance the environment by placing flowers in areas bees will flock while also leading the beetles away from the bees.
 
 ### Idle
 
 **Objective:** 
-When the beetle is first spawned in, it will remain still for a few seconds in order to give the player a headstart/time to plan accordingly. During this state, the beetle will count down and will begin to move when it gets to zero. Beetle will have a red color tint during its stationary phase.
+When the beetle is first spawned in, it will remain still for a few seconds in order to give the player a headstart/time to plan accordingly. During this state, the beetle will count down and will begin to move when it gets to zero. Beetle will have a red color tint during its stationary phase. Whenever a beetle collides with or "kills" a bee/butterfly agent, a new beetle will be spawned in a random location. This means there will always be 3 beetles on screen.
 
 #### Steering Behaviors
 
