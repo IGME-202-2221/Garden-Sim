@@ -19,8 +19,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     List<GameObject> flowPrefabsList;
 
-    float cooldownDuration = 3f;
-    float cooldownTime = 3f;
+    float cooldownDuration = 2f;
+    float cooldownTime = 2f;
 
     // Start is called before the first frame update
     void Start()

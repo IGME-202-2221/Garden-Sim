@@ -24,7 +24,7 @@ public class AgentManager : MonoBehaviour
     int numBeetles;
 
     [SerializeField]
-    GameObject beetlePrefab;
+    public GameObject beetlePrefab;
 
     public List<Obstacle> obstacles = new List<Obstacle>();
 

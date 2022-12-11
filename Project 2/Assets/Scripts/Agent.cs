@@ -52,6 +52,9 @@ public abstract class Agent : MonoBehaviour
     [SerializeField]
     protected float sightRadius = 3f;
 
+    protected bool beetleCollision = false;
+    public bool BeetleCollision { get { return beetleCollision; } set { beetleCollision = value; } }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,11 +82,19 @@ public abstract class Agent : MonoBehaviour
         for (int i = 0; i < AgentManager.Instance.flowers.Count; i++)
         {
             // if there is a collision and this flower hasn't already collided with an agent
-            if (CircleCollision(gameObject, AgentManager.Instance.flowers[i]) && !AgentManager.Instance.flowers[i].GetComponent<Flower>().HasCollided)
+            if (CircleCollisionGameObject(gameObject, AgentManager.Instance.flowers[i]) && 
+                !AgentManager.Instance.flowers[i].GetComponent<Flower>().HasCollided)
             {
                 // set this flower's collision property to true
                 AgentManager.Instance.flowers[i].GetComponent<Flower>().HasCollided = true;
             }
+        }
+
+        // if this agent has collided with a beetle, destroy itself
+        if (beetleCollision)
+        {
+            AgentManager.Instance.agentsList.Remove(gameObject.GetComponent<Agent>());
+            Destroy(gameObject);
         }
     }
 
@@ -238,7 +249,23 @@ public abstract class Agent : MonoBehaviour
         return avoidForce;
     }
 
-    public bool CircleCollision(GameObject obj1, GameObject obj2)
+    public bool CircleCollision(GameObject obj1, Agent obj2)
+    {
+        // store the distance between circle centers
+        float centerDist = (obj1.transform.position - obj2.transform.position).magnitude;
+
+        // collision occurs if distance between centers is less than the sum of the radii
+        if ((centerDist) < (obj1.GetComponent<SpriteInfo>().Radius + obj2.GetComponent<SpriteInfo>().Radius))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool CircleCollisionGameObject(GameObject obj1, GameObject obj2)
     {
         // store the distance between circle centers
         float centerDist = (obj1.transform.position - obj2.transform.position).magnitude;

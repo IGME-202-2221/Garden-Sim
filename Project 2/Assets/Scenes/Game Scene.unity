@@ -302,6 +302,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: obstacle (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5774453284187993798, guid: 06e2ed6f8ebb54b42bca5813a499499c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5908131807174314636, guid: 06e2ed6f8ebb54b42bca5813a499499c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -374,6 +378,10 @@ PrefabInstance:
     - target: {fileID: 4139854005411102952, guid: 06e2ed6f8ebb54b42bca5813a499499c, type: 3}
       propertyPath: m_Name
       value: obstacle (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5774453284187993798, guid: 06e2ed6f8ebb54b42bca5813a499499c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5908131807174314636, guid: 06e2ed6f8ebb54b42bca5813a499499c, type: 3}
       propertyPath: m_RootOrder
@@ -481,6 +489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1842223226}
   - component: {fileID: 1842223227}
+  - component: {fileID: 1842223228}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -520,7 +529,7 @@ MonoBehaviour:
   - {fileID: 2775399190464354379, guid: 0479dd93d7e44fd43910961f4ed30108, type: 3}
   agentsList: []
   numBees: 15
-  numBeetles: 5
+  numBeetles: 3
   beetlePrefab: {fileID: 7411863837036426196, guid: 93313a6ed4e5ff34981aa96420f986cb, type: 3}
   obstacles:
   - {fileID: 2029883847}
@@ -529,6 +538,18 @@ MonoBehaviour:
   flowers: []
   beetles: []
   player: {fileID: 1342253054}
+--- !u!114 &1842223228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842223224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10f757d182b990b4eb189fe7e22a9f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2029883847 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3496360533442021501, guid: 06e2ed6f8ebb54b42bca5813a499499c, type: 3}
@@ -560,6 +581,10 @@ PrefabInstance:
     - target: {fileID: 4139854005411102952, guid: 06e2ed6f8ebb54b42bca5813a499499c, type: 3}
       propertyPath: m_Name
       value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5774453284187993798, guid: 06e2ed6f8ebb54b42bca5813a499499c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5908131807174314636, guid: 06e2ed6f8ebb54b42bca5813a499499c, type: 3}
       propertyPath: m_RootOrder
