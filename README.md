@@ -22,13 +22,13 @@ The player will help manage a small garden simulation! In this top-down perspect
 
 ## Bee (& Butterfly)
 
-Bee agents will wander around the screen and will seek flowers when in a placed flower's proximity. The bee's goal is to collide with found flowers and "pollinate" them (flowers disappear upon being pollinated), rewarding the player with points. An extra bee is also spawned each time a flower is successfully polinated.
+Bee agents will wander around the screen and will seek flowers when in a placed flower's proximity. The bee's goal is to collide with found flowers and "pollinate" them (flowers disappear upon being pollinated).
 
 ### Aimless Wander
 
 **Objective:**
 
-Bees and butterflies will wander until they "see" a flower or target to pollinate. During the wander state, the critters will just attempt to stay in bounds, separate from one another, and wander the screen in a believable way. There will be no color tint to the sprite during this phase.
+Bees and butterflies will wander until they "see" a flower or target to pollinate. During the wander state, the critters will just attempt to stay in bounds, separate from one another, and wander the screen in a believable way.
 
 #### Steering Behaviors
 
@@ -50,7 +50,7 @@ Bees and butterflies will wander until they "see" a flower or target to pollinat
 
 **Objective:** 
 
-When a flower is found (critter falls within a certain area around the flower object), bees & butterflies will seek that flower. The bee will also change to a slight color tint or have a particle effect when actively seeking a flower.
+When a flower is found (critter falls within a certain area around the flower object), bees & butterflies will seek that flower.
 
 #### Steering Behaviors
 
@@ -70,13 +70,12 @@ When a flower is found (critter falls within a certain area around the flower ob
 
 ## Beetles
 
-Hostile beetles will slowly creep toward the player and aim to damage the ecosystem. If a bee comes in contact with a beetle the bee will die. Beetles will also move slower than bees. Thus the player's goal is to balance the environment by placing flowers in areas bees will flock while also leading the beetles away from the bees.
+Hostile beetles will slowly creep toward the player and aim to damage the ecosystem. If a bee comes in contact with a beetle, both the bee and beetle will die, but a new beetle will be spawned in a random location. Beetles will also move slower than bees. Thus the player's goal is to balance the environment by placing flowers in areas bees will flock while also leading the beetles away from the bees.
 
 ### Idle
 
 **Objective:** 
-When the beetle is first spawned in, it will remain still for a few seconds in order to give the player a headstart/time to plan accordingly. During this state, the beetle will count down and will begin to move when it gets to zero. Beetle will have a red color tint during its stationary phase. Whenever a beetle collides with or "kills" a bee/butterfly agent, a new beetle will be spawned in a random location. This means there will always be 3 beetles on screen.
-
+When the beetle is first spawned in, it will remain still for a few seconds in order to give the player a headstart/time to plan accordingly. During this state, the beetle will count down and will begin to move when it gets to zero. Beetle will have a red color tint during its stationary phase.
 #### Steering Behaviors
 
 - no steering behaviors necessary (remaining still), however, beetle will rotate in direction of player
@@ -111,7 +110,7 @@ Beetles will slowly move towards the player's current location with the intentio
 ## Sources
 
 -   all sprites were created by myself using Adobe Illustrator
--   background image was created by myself using Adobe Illustrator
+-   background image and restart buttoner was created by myself using Adobe Illustrator
 
 ## Make it Your Own
 
@@ -120,6 +119,8 @@ Beetles will slowly move towards the player's current location with the intentio
 - player particle effect trail that displays whenever the player moves, created using Unity's built in particle system
 - additional agent type called the Butterfly, which has the same functionality as the bee agents just with a quicker speed and more jerky feeling movement. The butterfly is a rarer spawn, and grants the player more points when flowers a pollinated with the butterfly. The butterfly has the same steering behaviors and state functionality as the bee.
 - there is a wait time until flowers are destroyed, meaning that agents can cluster near flowers and the flower won't be removed from the scene immediately
+- there is a game over screen that is triggered when all bees and butterflies are destroyed by beetles
+- canvas and button UI utilized to restart the simulation from the game over screen
 
 ## Known Issues
 
